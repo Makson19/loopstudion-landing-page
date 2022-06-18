@@ -33,7 +33,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [Repository](https://github.com/Makson19/loopstudios-landing-page)
-- Live Site URL: [Live demo](https://makson19.github.io/loopstudios-landing-page)
+- Live Site URL: [Live demo](https://loopstudiosapp2.netlify.app/)
 
 ## My process
 
