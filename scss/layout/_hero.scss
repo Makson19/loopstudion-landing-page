@@ -1,0 +1,21 @@
+.hero {
+    height: 74.2rem;
+    background-image: url("../../images/mobile/image-hero.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+}
+
+
+// min-width: 769px //
+@media (min-width: 48.0625rem) {
+    .hero {
+        height: 65rem;
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../../images/desktop/image-hero.jpg");
+        background-repeat: no-repeat;
+        background-size: contain 100%;
+        background-position: center top;
+        background-attachment: fixed;
+    }
+}

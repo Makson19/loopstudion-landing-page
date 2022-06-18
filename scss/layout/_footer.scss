@@ -1,0 +1,168 @@
+@use "../abstracts" as *;
+
+#footer {
+    background-color: $black;
+    
+    .container-footer {
+        padding: 6.4rem 3rem;
+        @include flex(column, center, center);
+        gap: 5.6rem;
+        max-width: 111.4rem;
+        margin: 0 auto;
+    
+        .col1 {
+            .logo {
+                width: 19rem;
+                margin-bottom: 4rem;
+        
+                img {
+                    width: 100%;
+                }
+            }
+        
+            .nav-footer {
+                ul {
+                    @include flex(column, center, center);
+                    gap: 3.2rem;
+        
+                    li {
+                        position: relative; 
+                        transition: all 0.3s ease-in-out;
+    
+                        a{
+                            font-family: $font-alata;
+                            font-size: 1.7rem;
+                            font-weight: 400;
+                            color: $white;
+                        }
+    
+                        &:hover {
+                            opacity: 0.8;
+                        }
+    
+                        &::after {
+                            content: "";
+                            position: absolute;
+                            bottom: -1.2rem;
+                            left: calc(50% - 1.2rem);
+                            transform: scaleX(0);
+                            width: 2.4rem;
+                            height: 0.2rem;
+                            border-radius: 0.1rem;
+                            background-color: $white;
+                            opacity: 0;
+                            transition: all 0.3s ease-in-out;
+                        }
+                        
+                        &:hover::after {
+                            opacity: 1;
+                            transform: scaleX(1);
+                        }
+                    }
+                }
+            }
+        }
+    
+        .col2 {
+            .socials {
+                @include flex(row, center, center);
+                gap: 1.8rem;
+                margin-bottom: 2rem;
+    
+                a {
+                    display: inline-block;
+                    width: 2.8rem;
+                    height: 3.2rem;
+                    position: relative;
+                    transition: all 0.3s ease-in-out;
+    
+                    img {
+                        width: 100%;
+                        object-fit: cover;
+                    }
+    
+                    &:hover {
+                        opacity: 0.8;
+                    }
+    
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        bottom: -1.2rem;
+                        left: 0;
+                        // left: calc(50% - 1.2rem);
+                        transform: scaleX(0);
+                        width: 100%;
+                        height: 0.2rem;
+                        border-radius: 0.1rem;
+                        background-color: $white;
+                        opacity: 0;
+                        transition: all 0.3s ease-in-out;
+                    }
+                    
+                    &:hover::after {
+                        opacity: 0.8;
+                        transform: scaleX(1);
+                    }                
+                }
+            }
+    
+            .rights {
+                p {
+                    font-family: $font-alata;
+                    font-size: 1.6rem;
+                    line-height: 2.2rem;
+                    color: $dark-gray;
+                }
+            }
+        }
+    }
+}
+
+
+// min-width: 768px //
+@media (min-width: 48rem) {
+    #footer {
+        .container-footer {
+            flex-direction: row;
+            justify-content: space-between;
+    
+            .col1 {
+                .logo {
+                    text-align: left;
+                    margin-bottom: 2.6rem;
+                }
+    
+                .nav-footer {
+                    ul {
+                        flex-direction: row;
+                        justify-content: flex-start;
+    
+                        li {
+                            a {
+                                font-size: 1.5rem;
+                            }
+                        }
+                    }
+                }
+            }
+    
+            .col2 {
+                .socials {
+                    gap: 1.6rem;
+                    justify-content: flex-end;
+                    
+                    a {
+                        height: auto;
+                    }
+                }
+    
+                .rights {
+                    p {
+                        text-align: right;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,172 @@
+@use "../abstracts" as *;
+
+// path to cards background
+$paths: (1: 'deep-earth.jpg', 
+          2: 'night-arcade.jpg',
+          3: 'soccer-team.jpg',
+          4: 'grid.jpg',
+          5: 'from-above.jpg',
+          6: 'pocket-borealis.jpg',
+          7: 'curiosity.jpg',
+          8: 'fisheye.jpg');
+
+#section-creations {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(3, auto);
+    grid-template-areas: "t t"
+                         "c c"
+                         "b b";
+    padding: 0 2.7rem 10.9rem;
+    text-align: center;
+
+    .title {
+        grid-area: t;
+        margin-bottom: 5.5rem;
+        
+        h2 {
+            font-family: $font-josefin;
+            font-size: 3.3rem;
+            font-weight: 300;
+            text-transform: uppercase;
+        }
+    }
+
+    .cards {
+        grid-area: c;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2.8rem;
+
+        .card {
+            width: 100%;
+            max-width: 45rem;
+            height: 13.8rem;
+            margin: 0 auto;
+            padding: 2.4rem;
+            @include flex(row, flex-end, flex-start);
+
+            h3 {
+                font-family: $font-josefin;
+                font-size: 2.7rem;
+                font-weight: 300;
+                text-transform: uppercase;
+                color: $white;
+                max-width: 12.5rem;
+                text-align: left;
+            }
+
+            @each $key, $path in $paths {
+                &0#{$key} {
+                    background: linear-gradient(90deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%), url("../../images/mobile/image-#{$path}");
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: cover;
+                    // transition: background 0.3s ease-in-out;
+
+                    &:hover {
+                        background: linear-gradient(90deg, hsla(0, 0%, 100%, 0.8) 0%, hsla(0, 0%, 100%, 0.8) 100%), url("../../images/mobile/image-#{$path}");
+                        background-size: cover;
+                        
+                        h3 {
+                            color: $black;
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .btn {
+        grid-area: b;
+        margin: 3.5rem auto 0;
+        display: inline-block;
+        padding: 1.6rem 5rem;
+        font-size: 1.5rem;
+        font-family: $font-alata;
+        font-weight: 400;
+        letter-spacing: 0.41em;
+        text-transform: uppercase;
+        color: $black;
+        border: 0.1rem solid $black;
+        transition: 0.3s ease-in-out;
+        transition-property: background-color, color;
+        
+        &:hover {
+            background-color: $black;
+            color: $white;
+        }
+    }
+}
+
+
+// min-width: 768px //
+@media (min-width: 48rem) {
+    #section-creations {
+        .title {
+            h2 {
+                font-size: 4.8rem;
+            }
+        }
+    
+        .cards {
+            max-width: 54.2rem;
+            margin: 0 auto;
+            gap: 3rem;
+    
+            .card {
+                width: 25.6rem;
+                height: 45rem;
+                // transition: background 0.3s ease-in-out;
+
+                @each $key, $path in $paths {
+                    &0#{$key} {
+                        background: linear-gradient(90deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%), url("../../images/desktop/image-#{$path}");
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        background-size: cover;
+                        position: relative;
+
+                        &:hover {
+                            background: linear-gradient(90deg, hsla(0, 0%, 100%, 0.8) 0%, hsla(0, 0%, 100%, 0.8) 100%), url("../../images/desktop/image-#{$path}");
+                            background-size: cover;
+                            
+                            h3 {
+                                color: $black;
+                                opacity: 1;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+// min-width: 1024px //
+@media (min-width: 64rem) {
+    #section-creations {
+        max-width: 115.4rem;
+        padding: 0 2rem 18.3rem;
+        margin: 0 auto;
+        grid-template-areas: "t b"
+                             "c c"
+                             ". .";
+
+        .title {
+            text-align: left;
+            margin-bottom: 8rem;
+        }
+
+        .cards {
+            max-width: 111.4rem;
+        }
+
+        .btn {
+            margin: 0 0 8rem auto;
+            padding: 1.3rem 4.4rem 1.4rem 3.9rem;
+        }
+    }
+}

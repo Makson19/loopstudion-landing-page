@@ -1,0 +1,46 @@
+@use "../abstracts" as *;
+
+#main {
+    padding: 15.5rem 2.6rem 0;
+    width: min(66.8rem, 100%);
+    margin: 0 auto;
+
+    .title {
+        border: 0.3rem solid $white;
+        padding: 3rem 2.9rem 2.1rem;
+        max-width: 65.2rem;
+
+        h1 {
+            font-family: $font-josefin;
+            font-weight: 300;
+            font-size: clamp(2.5rem, 9.5vw + 0.2rem, 7.3rem);
+            text-transform: uppercase;
+            color: $white;
+        }
+    }
+
+    .result {
+        font-size: 1.6rem;
+        color: $white;
+        display: none;
+    }
+}
+
+
+// min-width: 768px //
+@media (min-width: 48rem) {
+    #main {
+        padding: 11.5rem 0;
+    }
+}
+
+
+// min-width: 1024px //
+@media (min-width: 64rem) {
+    #main {
+        width: auto;
+        max-width: 111.4rem;
+        margin: 0 auto;
+        padding-left: 5rem;
+    }
+}
